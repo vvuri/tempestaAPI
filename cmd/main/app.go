@@ -5,8 +5,9 @@ import (
 	"log"
 	"net"
 	"net/http"
-	"testAPI/internal/user"
 	"time"
+
+	"testAPI/internal/user"
 
 	"github.com/julienschmidt/httprouter"
 )
@@ -20,7 +21,9 @@ func Index(w http.ResponseWriter, r *http.Request, params httprouter.Params) {
 }
 
 func main() {
-	log.Println("create router")
+	logger := logging.Init()
+	logger.Info("create router")
+
 	router := httprouter.New()
 
 	log.Println("register user")
