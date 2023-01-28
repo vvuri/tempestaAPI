@@ -11,7 +11,7 @@ var _ handlers.Handler = &handler{}
 
 const (
 	usersURL = "/api/users"
-	userURL  = "/api/user:id"
+	userURL  = "/api/users/:uuid"
 )
 
 type handler struct {
