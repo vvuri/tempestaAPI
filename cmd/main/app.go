@@ -32,7 +32,8 @@ func main() {
 }
 
 func start(router *httprouter.Router) {
-	// log.Fatal(http.ListenAndServe(":8080", router))
+	log.Println("start listener")
+
 	listener, err := net.Listen("tcp", "127.0.0.1:8080")
 	if err != nil {
 		panic(err)
@@ -43,5 +44,6 @@ func start(router *httprouter.Router) {
 		WriteTimeout: 15 * time.Second,
 		ReadTimeout:  15 * time.Second}
 
+	log.Println("server listening on port 8080")
 	log.Fatal(server.Serve(listener))
 }
