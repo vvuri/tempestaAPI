@@ -3,14 +3,16 @@ package linkbot
 import (
 	"flag"
 	"log"
+
+	"tempestaAPI/internal/clients/telegram"
+)
+
+const (
+	tgBotHost = "api.telegram.org"
 )
 
 func main() {
-	//token = flags.Get(token)
-	token := mustToken()
-	log.Println(token)
-
-	// tgClient =telegram.New()
+	tgClient := telegram.New(tgBotHost, mustToken())
 
 	// fetcher = fetcher.New(tgClient)
 
