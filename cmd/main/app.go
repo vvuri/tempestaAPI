@@ -2,14 +2,16 @@ package main
 
 import (
 	"fmt"
-	"log"
+	//"log"
 	"net"
 	"net/http"
 	"time"
 
+	//"github.com/vvuri/tempestaAPI/logging"
 	"testAPI/internal/user"
 
 	"github.com/julienschmidt/httprouter"
+	log "github.com/sirupsen/logrus"
 )
 
 func Index(w http.ResponseWriter, r *http.Request, params httprouter.Params) {
@@ -21,8 +23,8 @@ func Index(w http.ResponseWriter, r *http.Request, params httprouter.Params) {
 }
 
 func main() {
-	logger := logging.Init()
-	logger.Info("create router")
+	//logger := logging.Init()
+	//logger.Info("create router")
 
 	router := httprouter.New()
 
