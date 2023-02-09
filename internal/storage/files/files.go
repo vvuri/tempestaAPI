@@ -46,6 +46,22 @@ func (s Storage) Save(page *storage.Page) (err error) {
 	return nil
 }
 
+func (s Storage) decodePage(filePath string) (*storate.Page, error) {
+	f, err := os.Open(filePath)
+	if err != nil {
+		return nil, e.Wrap("can't decode page", err)
+	}
+	defer f.Close()
+
+	var p storage.Page
+
+	if err := gob.NewDecoder(&p); err != nil {
+		return nil, e.Wrap("can't decode page", err)
+	}
+
+	return &p, nil
+}
+
 func fileName(p *storage.Page) (string, error) {
 	return p.Hash(), nil
 }
